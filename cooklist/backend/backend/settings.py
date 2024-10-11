@@ -58,7 +58,7 @@ CLOUDINARY_STORAGE = {
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEVELOPMENT', '') != 'False'
+DEBUG = os.environ.get('DEVELOPMENT', 'True').lower() == 'true'
 
 ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com']
 
@@ -83,6 +83,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'allauth',
     'allauth.account',
+    'allauth.socialaccount', 
     'backend',
     'api',
     'profiles',
@@ -144,7 +145,6 @@ else:
         'default': dj_database_url.parse(
             os.environ.get("DATABASE_URL", "sqlite:///db.sqlite3"), 
             conn_max_age=600, 
-            ssl_require=True
         )
     }
 
