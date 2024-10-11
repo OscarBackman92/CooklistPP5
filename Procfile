@@ -1,1 +1,1 @@
-web: gunicorn cooklist.backend.wsgi:application
+web: gunicorn backend.wsgi:application
