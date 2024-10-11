@@ -1,1 +1,1 @@
-web: gunicorn cooklist.wsgi
+web: gunicorn cooklist.wsgi --log-file -
